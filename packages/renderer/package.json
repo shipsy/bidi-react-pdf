@@ -22,6 +22,7 @@
     "watch": "rimraf ./lib && rollup -c -w",
     "precommit": "git add . && lint-staged",
     "lint": "eslint src",
+    "benchmark": "babel-node ./bench/index.jsx",
     "test": "jest"
   },
   "dependencies": {
