@@ -8,7 +8,7 @@ import * as R from 'ramda';
  */
 const applyRunStyles = R.evolve({
   attributes: a => ({
-    align: a.align || a.direction === 'rtl' ? 'right' : 'left',
+    align: R.or(a.align, a.direction === 'rtl' ? 'right' : 'left'),
     alignLastLine:
       a.alignLastLine || (a.align === 'justify' ? 'left' : a.align || 'left'),
     attachment: a.attachment || null,
@@ -20,6 +20,7 @@ const applyRunStyles = R.evolve({
     features: a.features || [],
     fill: a.fill !== false,
     font: a.font || null,
+    backupFont: a.backupFont || null,
     fontSize: a.fontSize || 12,
     hangingPunctuation: a.hangingPunctuation || false,
     hyphenationFactor: a.hyphenationFactor || 0,

@@ -3,6 +3,7 @@ import standard from './standard';
 
 function FontStore() {
   let fonts = {};
+  let fontBackup = null;
 
   let emojiSource = null;
 
@@ -22,6 +23,23 @@ function FontStore() {
       }
     } else {
       fonts[family].register(data);
+    }
+  };
+
+  this.registerBackup = data => {
+    const { family } = data;
+
+    if (!fontBackup) {
+      fontBackup = font.create(family);
+    }
+
+    // Bulk loading
+    if (data.fonts) {
+      for (let i = 0; i < data.fonts.length; i += 1) {
+        fontBackup.register({ family, ...data.fonts[i] });
+      }
+    } else {
+      fontBackup.register(data);
     }
   };
 
@@ -48,6 +66,11 @@ function FontStore() {
     return fonts[fontFamily].resolve(descriptor);
   };
 
+  this.getBackupFont = descriptor => {
+    if (!fontBackup) return null;
+    return fontBackup.resolve(descriptor);
+  };
+
   this.load = async descriptor => {
     const { fontFamily } = descriptor;
     const isStandard = standard.includes(fontFamily);
@@ -59,6 +82,13 @@ function FontStore() {
     // We cache the font to avoid fetching it many times
     if (!f.data && !f.loading) {
       await f.load();
+    }
+  };
+
+  this.loadBackup = async descriptor => {
+    const backupFont = this.getBackupFont(descriptor);
+    if (backupFont && !backupFont.data && !backupFont.loading) {
+      await backupFont.load();
     }
   };
 
