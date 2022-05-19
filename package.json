@@ -61,7 +61,7 @@
     "lint-staged": "^10.5.4",
     "mock-fs": "^4.8.0",
     "mockdate": "^2.0.2",
-    "pdfjs-dist": "2.8.335",
+    "pdfjs-dist": "2.14.305",
     "prettier": "^1.16.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
