@@ -5,12 +5,15 @@ import fontSubstitution, {
   fontSubstitutionImpl,
 } from '../internal/fontSubstitutionEngine';
 
-const preprocessor = preprocessRuns({ scriptItemizer, fontSubstitution });
+import bidi, { bidiEngineImpl } from '../internal/bidiEngine';
+
+const preprocessor = preprocessRuns({ bidi, scriptItemizer, fontSubstitution });
 
 describe('preprocessRuns', () => {
   beforeEach(() => {
     scriptItemizerImpl.mockClear();
     fontSubstitutionImpl.mockClear();
+    bidiEngineImpl.mockClear();
   });
 
   test('should call both engines with attributed string', () => {
@@ -22,6 +25,8 @@ describe('preprocessRuns', () => {
     expect(scriptItemizerImpl.mock.calls[0][0]).toBe(param);
     expect(fontSubstitutionImpl.mock.calls).toHaveLength(1);
     expect(fontSubstitutionImpl.mock.calls[0][0]).toBe(param);
+    expect(bidiEngineImpl.mock.calls).toHaveLength(1);
+    expect(bidiEngineImpl.mock.calls[0][0]).toBe(param);
   });
 
   test('should return empty value for null param', () => {

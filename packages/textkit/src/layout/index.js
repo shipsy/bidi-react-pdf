@@ -10,6 +10,7 @@ import splitParagraphs from './splitParagraphs';
 import finalizeFragments from './finalizeFragments';
 import resolveAttachments from './resolveAttachments';
 import applyDefaultStyles from './applyDefaultStyles';
+import bidiMirroring from './bidiMirroring';
 
 /**
  * A LayoutEngine is the main object that performs text layout.
@@ -30,6 +31,7 @@ const layoutEngine = (engines, attributedString, container, options = {}) => {
     resolveAttachments(engines, options),
     wrapWords(engines, options),
     generateGlyphs(engines, options),
+    bidiMirroring(engines, options),
     preprocessRuns(engines, options),
   );
 
