@@ -57,17 +57,20 @@ describe('preprocessRuns', () => {
     expect(string.runs[0].attributes).toHaveProperty('color', 'red');
     expect(string.runs[0].attributes).toHaveProperty('script', 'Latin');
     expect(string.runs[0].attributes).toHaveProperty('font', 'Courier');
+    expect(string.runs[0].attributes).toHaveProperty('bidiLevel', 0);
 
     expect(string.runs[1]).toHaveProperty('start', 2);
     expect(string.runs[1]).toHaveProperty('end', 3);
     expect(string.runs[1].attributes).toHaveProperty('color', 'red');
     expect(string.runs[1].attributes).toHaveProperty('script', 'Latin');
     expect(string.runs[1].attributes).toHaveProperty('font', 'Helvetica');
+    expect(string.runs[1].attributes).toHaveProperty('bidiLevel', 0);
 
     expect(string.runs[2]).toHaveProperty('start', 3);
     expect(string.runs[2]).toHaveProperty('end', 5);
     expect(string.runs[2].attributes).toHaveProperty('color', 'red');
     expect(string.runs[2].attributes).toHaveProperty('script', 'Non-latin');
     expect(string.runs[2].attributes).toHaveProperty('font', 'Helvetica');
+    expect(string.runs[2].attributes).toHaveProperty('bidiLevel', 1);
   });
 });

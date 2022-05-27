@@ -2,10 +2,10 @@ import * as R from 'ramda';
 
 /**
  * Test font substitution based on the string 'Lorem'
- * Returns empry if no runs present, or arbitrary font substitution otherwise
+ * Returns emp if no runs present, or arbitrary font substitution otherwise
  *
- *   L     o     r     e     m
- * |- Courier -|-- Helvetica --|
+ *  *   L     o     r     e     m
+ * |---- Level 1 ------|-- Level 2 -|
  *
  * @param  {Object}  attributed string
  * @return {Object} attributed string
@@ -16,8 +16,8 @@ export const bidiEngineImpl = jest.fn(
       R.isEmpty,
       R.always([]),
       R.always([
-        { start: 0, end: 2, attributes: { font: 'Courier' } },
-        { start: 2, end: 5, attributes: { font: 'Helvetica' } },
+        { start: 0, end: 3, attributes: { bidiLevel: 0 } },
+        { start: 3, end: 5, attributes: { bidiLevel: 1 } },
       ]),
     ),
   }),
