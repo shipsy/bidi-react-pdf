@@ -48,14 +48,11 @@ const getFragments = (fontStore, instance, parentLink, level = 0) => {
   const obj = fontStore ? fontStore.getFont(opts) : null;
   const font = obj ? obj.data : fontFamily;
 
-  const backupObj = fontStore ? fontStore.getBackupFont(opts, true) : null;
-  const backupFont = backupObj ? backupObj.data : fontFamily;
   // Don't pass main background color to textkit. Will be rendered by the render package instead
   const backgroundColor = level === 0 ? null : instance.style.backgroundColor;
 
   const attributes = {
     font,
-    backupFont,
     color,
     opacity,
     fontSize,
