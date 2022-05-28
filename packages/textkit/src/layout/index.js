@@ -1,5 +1,4 @@
-import * as R from 'ramda';
-
+import compose from '../../../fns/compose';
 import wrapWords from './wrapWords';
 import typesetter from './typesetter';
 import bidiReordering from './bidiReordering';
@@ -25,8 +24,8 @@ import bidiMirroring from './bidiMirroring';
  * @param  {Object}  layout options
  * @return {Array} paragraph blocks
  */
-const layoutEngine = (engines, attributedString, container, options = {}) => {
-  const processParagraphs = R.compose(
+const layoutEngine = engines => (attributedString, container, options = {}) => {
+  const processParagraph = compose(
     resolveYOffset(engines, options),
     resolveAttachments(engines, options),
     wrapWords(engines, options),
@@ -35,14 +34,16 @@ const layoutEngine = (engines, attributedString, container, options = {}) => {
     preprocessRuns(engines, options),
   );
 
-  return R.compose(
+  const processParagraphs = paragraphs => paragraphs.map(processParagraph);
+
+  return compose(
     finalizeFragments(engines, options),
     bidiReordering(engines, options),
     typesetter(engines, options, container),
-    R.map(processParagraphs),
+    processParagraphs,
     splitParagraphs(engines, options),
     applyDefaultStyles(engines, options),
   )(attributedString);
 };
 
-export default R.curryN(3, layoutEngine);
+export default layoutEngine;

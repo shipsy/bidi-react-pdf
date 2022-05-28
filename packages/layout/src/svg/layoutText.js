@@ -2,12 +2,12 @@ import * as R from 'ramda';
 import * as P from '@react-pdf/primitives';
 import layoutEngine from '@react-pdf/textkit/lib/layout';
 import linebreaker from '@react-pdf/textkit/lib/engines/linebreaker';
-import AttributedString from '@react-pdf/textkit/lib/attributedString';
-import bidi from '@react-pdf/textkit/lib/engines/bidi';
 import justification from '@react-pdf/textkit/lib/engines/justification';
+import bidi from '@react-pdf/textkit/lib/engines/bidi';
 import scriptItemizer from '@react-pdf/textkit/lib/engines/scriptItemizer';
 import wordHyphenation from '@react-pdf/textkit/lib/engines/wordHyphenation';
 import decorationEngine from '@react-pdf/textkit/lib/engines/textDecoration';
+import fromFragments from '@react-pdf/textkit/lib/attributedString/fromFragments';
 
 import transformText from '../text/transformText';
 import fontSubstitution from '../text/fontSubstitution';
@@ -85,7 +85,7 @@ const getFragments = (fontStore, instance) => {
 };
 
 const getAttributedString = (fontStore, instance) =>
-  AttributedString.fromFragments(getFragments(fontStore, instance));
+  fromFragments(getFragments(fontStore, instance));
 
 const AlmostInfinity = 999999999999;
 

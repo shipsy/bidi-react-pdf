@@ -1,10 +1,12 @@
-import * as R from 'ramda';
-
 import omit from '../run/omit';
 import flatten from '../run/flatten';
 import empty from '../attributedString/empty';
+import isNil from '../../../fns/isNil';
 
-const omitFont = R.evolve({ runs: R.map(omit('font')) });
+const omitFontStack = attributedString => {
+  const runs = attributedString.runs.map(run => omit('fontStack', run));
+  return Object.assign({}, attributedString, { runs });
+};
 
 /**
  * Performs font substitution and script itemization on attributed string
@@ -14,24 +16,20 @@ const omitFont = R.evolve({ runs: R.map(omit('font')) });
  * @param  {Object}  attributed string
  * @return {Object} processed attributed string
  */
-const preprocessRuns = (engines, options) =>
-  R.ifElse(
-    R.isNil,
-    empty,
-    R.applySpec({
-      string: R.prop('string'),
-      runs: R.compose(
-        flatten,
-        R.flatten,
-        R.pluck('runs'),
-        R.juxt([
-          engines.bidi(options), // bidi processing
-          engines.fontSubstitution(options), // font substitution
-          engines.scriptItemizer(options), // script itemization
-          omitFont,
-        ]),
-      ),
-    }),
-  );
+const preprocessRuns = (engines, options) => attributedString => {
+  if (isNil(attributedString)) return empty();
+
+  const { string } = attributedString;
+  const { fontSubstitution, scriptItemizer, bidi } = engines;
+
+  const { runs: omittedFontStackRuns } = omitFontStack(attributedString);
+  const { runs: substitutedRuns } = fontSubstitution(options)(attributedString);
+  const { runs: itemizationRuns } = scriptItemizer(options)(attributedString);
+  const { runs: bidiRuns } = bidi(options)(attributedString);
+
+  const runs = bidiRuns.concat(substitutedRuns).concat(itemizationRuns).concat(omittedFontStackRuns);
+
+  return { string, runs: flatten(runs) };
+};
 
 export default preprocessRuns;
