@@ -1,6 +1,6 @@
-import Yoga from '@react-pdf/yoga';
-import * as P from '@react-pdf/primitives';
-import { isNil, compose } from '@react-pdf/fns';
+import Yoga from '@novalabs/pdf-yoga';
+import * as P from '@novalabs/pdf-primitives';
+import { isNil, compose } from '@novalabs/pdf-fns';
 
 import getMargin from '../node/getMargin';
 import getPadding from '../node/getPadding';

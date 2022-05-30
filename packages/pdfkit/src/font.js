@@ -1,4 +1,4 @@
-import fontkit from '@react-pdf/fontkit';
+import fontkit from '@novalabs/pdf-fontkit';
 import createStandardFont from './font/standard';
 import createEmbeddedFont from './font/embedded';
 

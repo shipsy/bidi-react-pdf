@@ -1,4 +1,4 @@
-import { isNil } from '@react-pdf/fns';
+import { isNil } from '@novalabs/pdf-fns';
 
 const getTop = node => node.box?.top || 0;
 

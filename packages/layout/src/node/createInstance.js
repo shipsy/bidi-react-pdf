@@ -1,5 +1,5 @@
-import { castArray } from '@react-pdf/fns';
-import { TextInstance } from '@react-pdf/primitives';
+import { castArray } from '@novalabs/pdf-fns';
+import { TextInstance } from '@novalabs/pdf-primitives';
 
 const isString = value => typeof value === 'string';
 

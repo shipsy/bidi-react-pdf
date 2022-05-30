@@ -1,4 +1,4 @@
-import Yoga from '@react-pdf/yoga';
+import Yoga from '@novalabs/pdf-yoga';
 
 import setPadding, {
   setPaddingTop,

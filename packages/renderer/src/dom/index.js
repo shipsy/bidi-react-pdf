@@ -1,4 +1,4 @@
-import * as primitives from '@react-pdf/primitives';
+import * as primitives from '@novalabs/pdf-primitives';
 
 import usePDF from './usePDF';
 import PDFViewer from './PDFViewer';
@@ -38,7 +38,7 @@ export * from './BlobProvider';
 
 export * from './PDFDownloadLink';
 
-export * from '@react-pdf/primitives';
+export * from '@novalabs/pdf-primitives';
 
 export default {
   pdf,

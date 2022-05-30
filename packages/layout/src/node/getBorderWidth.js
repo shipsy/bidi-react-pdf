@@ -1,4 +1,4 @@
-import Yoga from '@react-pdf/yoga';
+import Yoga from '@novalabs/pdf-yoga';
 
 const getComputedBorder = (yogaNode, edge) =>
   yogaNode ? yogaNode.getComputedBorder(edge) : 0;

@@ -1,8 +1,8 @@
 import BlobStream from 'blob-stream';
-import FontStore from '@react-pdf/font';
-import renderPDF from '@react-pdf/render';
-import PDFDocument from '@react-pdf/pdfkit';
-import layoutDocument from '@react-pdf/layout';
+import FontStore from '@novalabs/pdf-font';
+import renderPDF from '@novalabs/pdf-render';
+import PDFDocument from '@novalabs/pdf-pdfkit';
+import layoutDocument from '@novalabs/pdf-layout';
 
 import createRenderer from './renderer';
 import { version } from '../package.json';

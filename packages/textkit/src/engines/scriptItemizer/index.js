@@ -1,4 +1,4 @@
-import unicode from '@react-pdf/unicode-properties';
+import unicode from '@novalabs/pdf-unicode-properties';
 
 import empty from '../../attributedString/empty';
 

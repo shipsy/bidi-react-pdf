@@ -2,7 +2,7 @@
   <img src="https://user-images.githubusercontent.com/5600341/27505816-c8bc37aa-587f-11e7-9a86-08a2d081a8b9.png" height="280px">
 </p>
 
-# @react-pdf/unicode-properties
+# @novalabs/pdf-unicode-properties
 
 Provides fast access to unicode character properties. Uses [unicode-trie](https://github.com/devongovett/unicode-trie) to compress the
 properties for all code points into just 12KB.
@@ -27,8 +27,8 @@ npm install unicode-properties
 ```javascript
 var unicode = require('unicode-properties');
 
-unicode.getCategory('2'.charCodeAt()) //=> 'Nd'
-unicode.getNumericValue('2'.charCodeAt()) //=> 2
+unicode.getCategory('2'.charCodeAt()); //=> 'Nd'
+unicode.getNumericValue('2'.charCodeAt()); //=> 2
 ```
 
 ## API

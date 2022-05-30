@@ -1,5 +1,5 @@
 {
-  "name": "@react-pdf/pdfkit",
+  "name": "@novalabs/pdf-pdfkit",
   "version": "2.1.0",
   "description": "A PDF generation library for Node.js",
   "main": "lib/pdfkit.cjs.js",
@@ -29,8 +29,8 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.4",
-    "@react-pdf/fontkit": "^2.1.0",
-    "@react-pdf/png-js": "^2.1.0",
+    "@novalabs/pdf-fontkit": "^2.1.0",
+    "@novalabs/pdf-png-js": "^2.1.0",
     "crypto-js": "^4.0.0"
   },
   "devDependencies": {

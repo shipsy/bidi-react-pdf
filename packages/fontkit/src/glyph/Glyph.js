@@ -1,6 +1,6 @@
 import { cache } from '../decorators';
 import Path from './Path';
-import unicode from '@react-pdf/unicode-properties';
+import unicode from '@novalabs/pdf-unicode-properties';
 import StandardNames from './StandardNames';
 
 /**
@@ -29,7 +29,8 @@ export default class Glyph {
     this._font = font;
 
     // TODO: get this info from GDEF if available
-    this.isMark = this.codePoints.length > 0 && this.codePoints.every(unicode.isMark);
+    this.isMark =
+      this.codePoints.length > 0 && this.codePoints.every(unicode.isMark);
     this.isLigature = this.codePoints.length > 1;
   }
 
@@ -53,29 +54,36 @@ export default class Glyph {
     let metric = table.metrics.get(table.metrics.length - 1);
     let res = {
       advance: metric ? metric.advance : 0,
-      bearing: table.bearings.get(this.id - table.metrics.length) || 0
+      bearing: table.bearings.get(this.id - table.metrics.length) || 0,
     };
 
     return res;
   }
 
   _getMetrics(cbox) {
-    if (this._metrics) { return this._metrics; }
+    if (this._metrics) {
+      return this._metrics;
+    }
 
-    let {advance:advanceWidth, bearing:leftBearing} = this._getTableMetrics(this._font.hmtx);
+    let { advance: advanceWidth, bearing: leftBearing } = this._getTableMetrics(
+      this._font.hmtx,
+    );
 
     // For vertical metrics, use vmtx if available, or fall back to global data from OS/2 or hhea
     if (this._font.vmtx) {
-      var {advance:advanceHeight, bearing:topBearing} = this._getTableMetrics(this._font.vmtx);
-
+      var {
+        advance: advanceHeight,
+        bearing: topBearing,
+      } = this._getTableMetrics(this._font.vmtx);
     } else {
       let os2;
-      if (typeof cbox === 'undefined' || cbox === null) { ({ cbox } = this); }
+      if (typeof cbox === 'undefined' || cbox === null) {
+        ({ cbox } = this);
+      }
 
       if ((os2 = this._font['OS/2']) && os2.version > 0) {
         var advanceHeight = Math.abs(os2.typoAscender - os2.typoDescender);
         var topBearing = os2.typoAscender - cbox.maxY;
-
       } else {
         let { hhea } = this._font;
         var advanceHeight = Math.abs(hhea.ascent - hhea.descent);
@@ -84,10 +92,18 @@ export default class Glyph {
     }
 
     if (this._font._variationProcessor && this._font.HVAR) {
-      advanceWidth += this._font._variationProcessor.getAdvanceAdjustment(this.id, this._font.HVAR);
+      advanceWidth += this._font._variationProcessor.getAdvanceAdjustment(
+        this.id,
+        this._font.HVAR,
+      );
     }
 
-    return this._metrics = { advanceWidth, advanceHeight, leftBearing, topBearing };
+    return (this._metrics = {
+      advanceWidth,
+      advanceHeight,
+      leftBearing,
+      topBearing,
+    });
   }
 
   /**
@@ -133,7 +149,7 @@ export default class Glyph {
    * @return {Path}
    */
   getScaledPath(size) {
-    let scale = 1 / this._font.unitsPerEm * size;
+    let scale = (1 / this._font.unitsPerEm) * size;
     return this.path.scale(scale);
   }
 
@@ -200,7 +216,7 @@ export default class Glyph {
   render(ctx, size) {
     ctx.save();
 
-    let scale = 1 / this._font.head.unitsPerEm * size;
+    let scale = (1 / this._font.head.unitsPerEm) * size;
     ctx.scale(scale, scale);
 
     let fn = this.path.toFunction();

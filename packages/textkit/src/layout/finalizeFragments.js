@@ -1,4 +1,4 @@
-import { last, compose } from '@react-pdf/fns';
+import { last, compose } from '@novalabs/pdf-fns';
 
 import advanceWidth from '../attributedString/advanceWidth';
 import leadingOffset from '../attributedString/leadingOffset';

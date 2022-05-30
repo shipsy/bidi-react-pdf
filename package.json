@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@react-pdf/root",
+  "name": "@novalabs/pdf-root",
   "version": "2.0.0",
   "license": "MIT",
   "author": "Diego Muracciole <diegomuracciole@gmail.com>",
@@ -11,13 +11,13 @@
   ],
   "scripts": {
     "prepare": "husky install",
-    "build": "lerna run build --ignore @react-pdf/yoga",
+    "build": "lerna run build --ignore @novalabs/pdf-yoga",
     "watch": "lerna run watch --parallel",
     "bootstrap": "lerna bootstrap",
-    "prepublish": "lerna run build --ignore @react-pdf/yoga",
+    "prepublish": "lerna run build --ignore @novalabs/pdf-yoga",
     "lint": "eslint packages",
     "test": "jest",
-    "examples": "lerna run start --scope @react-pdf/examples",
+    "examples": "lerna run start --scope @novalabs/pdf-examples",
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish"

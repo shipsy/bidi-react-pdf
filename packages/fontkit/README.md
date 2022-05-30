@@ -2,14 +2,13 @@
   <img src="https://user-images.githubusercontent.com/5600341/27505816-c8bc37aa-587f-11e7-9a86-08a2d081a8b9.png" height="280px">
 </p>
 
-# @react-pdf/fontkit
+# @novalabs/pdf-fontkit
 
 Fontkit is an advanced font engine for Node and the browser, used by [PDFKit](https://github.com/devongovett/pdfkit). It supports many font formats, advanced glyph substitution and layout features, glyph path extraction, color emoji glyphs, font subsetting, and more.
 
 ## Acknowledges
 
 This project is a fork of [fontkit](https://github.com/foliojs/fontkit) by @devongovett and continued under the scope of this project since it has react-pdf specific features. Any recongnition should go to him and the original project mantainers.
-
 
 ## Fork changes
 
@@ -40,25 +39,25 @@ This project is a fork of [fontkit](https://github.com/foliojs/fontkit) by @devo
 ## Example
 
 ```javascript
-var fontkit = require('fontkit')
+var fontkit = require('fontkit');
 
 // open a font synchronously
-var font = fontkit.openSync('font.ttf')
+var font = fontkit.openSync('font.ttf');
 
 // layout a string, using default shaping features.
 // returns a GlyphRun, describing glyphs and positions.
-var run = font.layout('hello world!')
+var run = font.layout('hello world!');
 
 // get an SVG path for a glyph
-var svg = run.glyphs[0].path.toSVG()
+var svg = run.glyphs[0].path.toSVG();
 
 // create a font subset
-var subset = font.createSubset()
+var subset = font.createSubset();
 run.glyphs.forEach(function(glyph) {
-  subset.includeGlyph(glyph)
-})
+  subset.includeGlyph(glyph);
+});
 
-subset.encodeStream().pipe(fs.createWriteStream('subset.ttf'))
+subset.encodeStream().pipe(fs.createWriteStream('subset.ttf'));
 ```
 
 ## API

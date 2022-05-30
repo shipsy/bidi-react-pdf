@@ -1,5 +1,5 @@
-import Yoga from '@react-pdf/yoga';
-import { upperFirst } from '@react-pdf/fns';
+import Yoga from '@novalabs/pdf-yoga';
+import { upperFirst } from '@novalabs/pdf-fns';
 
 const ALIGN = {
   'flex-start': Yoga.ALIGN_FLEX_START,

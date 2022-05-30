@@ -1,5 +1,5 @@
 {
-  "name": "@react-pdf/unicode-properties",
+  "name": "@novalabs/pdf-unicode-properties",
   "version": "2.5.0",
   "license": "MIT",
   "description": "Provides fast access to unicode character properties",

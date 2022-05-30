@@ -1,4 +1,4 @@
-import * as P from '@react-pdf/primitives';
+import * as P from '@novalabs/pdf-primitives';
 
 import createCTX from '../ctx';
 import renderBackground from '../../src/primitives/renderBackground';

@@ -1,4 +1,4 @@
-import * as primitives from '@react-pdf/primitives';
+import * as primitives from '@novalabs/pdf-primitives';
 
 import renderToFile from './renderToFile';
 import renderToStream from './renderToStream';
@@ -37,7 +37,7 @@ export * from './renderToStream';
 
 export * from './renderToString';
 
-export * from '@react-pdf/primitives';
+export * from '@novalabs/pdf-primitives';
 
 export default {
   pdf,

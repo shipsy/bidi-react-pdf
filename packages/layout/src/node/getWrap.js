@@ -1,5 +1,5 @@
-import * as P from '@react-pdf/primitives';
-import { isNil } from '@react-pdf/fns';
+import * as P from '@novalabs/pdf-primitives';
+import { isNil } from '@novalabs/pdf-fns';
 
 const NON_WRAP_TYPES = [P.Svg, P.Note, P.Image, P.Canvas];
 

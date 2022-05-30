@@ -1,12 +1,12 @@
-import * as P from '@react-pdf/primitives';
-import layoutEngine from '@react-pdf/textkit/lib/layout';
-import linebreaker from '@react-pdf/textkit/lib/engines/linebreaker';
-import justification from '@react-pdf/textkit/lib/engines/justification';
-import bidi from '@react-pdf/textkit/lib/engines/bidi';
-import scriptItemizer from '@react-pdf/textkit/lib/engines/scriptItemizer';
-import wordHyphenation from '@react-pdf/textkit/lib/engines/wordHyphenation';
-import decorationEngine from '@react-pdf/textkit/lib/engines/textDecoration';
-import fromFragments from '@react-pdf/textkit/lib/attributedString/fromFragments';
+import * as P from '@novalabs/pdf-primitives';
+import layoutEngine from '@novalabs/pdf-textkit/lib/layout';
+import linebreaker from '@novalabs/pdf-textkit/lib/engines/linebreaker';
+import justification from '@novalabs/pdf-textkit/lib/engines/justification';
+import bidi from '@novalabs/pdf-textkit/lib/engines/bidi';
+import scriptItemizer from '@novalabs/pdf-textkit/lib/engines/scriptItemizer';
+import wordHyphenation from '@novalabs/pdf-textkit/lib/engines/wordHyphenation';
+import decorationEngine from '@novalabs/pdf-textkit/lib/engines/textDecoration';
+import fromFragments from '@novalabs/pdf-textkit/lib/attributedString/fromFragments';
 
 import transformText from '../text/transformText';
 import fontSubstitution from '../text/fontSubstitution';

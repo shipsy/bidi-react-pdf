@@ -1,4 +1,4 @@
-import flatten from '@react-pdf/stylesheet/lib/flatten';
+import flatten from '@novalabs/pdf-stylesheet/lib/flatten';
 
 import getPageSize from '../page/getSize';
 

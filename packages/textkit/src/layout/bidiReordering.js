@@ -1,5 +1,5 @@
 import bidiFactory from 'bidi-js';
-import repeat from '@react-pdf/fns/src/repeat';
+import repeat from '@novalabs/pdf-fns/src/repeat';
 
 import stringLength from '../attributedString/length';
 

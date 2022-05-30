@@ -1,4 +1,4 @@
-import { capitalize, upperFirst } from '@react-pdf/fns';
+import { capitalize, upperFirst } from '@novalabs/pdf-fns';
 
 /**
  * Apply transformation to text string

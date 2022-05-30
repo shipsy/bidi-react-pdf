@@ -1,5 +1,5 @@
 {
-  "name": "@react-pdf/fns",
+  "name": "@novalabs/pdf-fns",
   "version": "0.0.0",
   "license": "MIT",
   "description": "React-pdf helper functions",
