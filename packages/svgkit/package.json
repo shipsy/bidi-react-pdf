@@ -1,7 +1,7 @@
 {
   "name": "@novalabs/pdf-svgkit",
   "license": "MIT",
-  "version": "2.2.0-alpha.0",
+  "version": "2.3.0-alpha.0",
   "description": "A SVG generation library for Node.js and browser",
   "main": "./lib/index.js",
   "repository": {
@@ -22,6 +22,6 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.4",
-    "@novalabs/pdf-pdfkit": "^2.2.0-alpha.0"
+    "@novalabs/pdf-pdfkit": "^2.3.0-alpha.0"
   }
 }

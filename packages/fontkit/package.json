@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-fontkit",
-  "version": "2.2.0-alpha.0",
+  "version": "2.3.0-alpha.0",
   "description": "An advanced font engine for Node and the browser",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.16.4",
-    "@novalabs/pdf-unicode-properties": "^2.6.0-alpha.0",
+    "@novalabs/pdf-unicode-properties": "^2.7.0-alpha.0",
     "brotli": "^1.2.0",
     "clone": "^1.0.4",
     "deep-equal": "^1.0.0",

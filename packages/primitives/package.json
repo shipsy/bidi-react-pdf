@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-primitives",
-  "version": "2.1.0-alpha.0",
+  "version": "2.2.0-alpha.0",
   "license": "MIT",
   "description": "Define uninitialized elements",
   "author": "Diego Muracciole <diegomuracciole@gmail.com>",

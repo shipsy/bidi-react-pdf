@@ -1,7 +1,7 @@
 {
   "name": "@novalabs/pdf-textkit",
   "license": "MIT",
-  "version": "2.2.0-alpha.0",
+  "version": "2.3.0-alpha.0",
   "description": "An advanced text layout framework",
   "main": "./lib/index.js",
   "repository": {
@@ -23,8 +23,8 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.4",
-    "@novalabs/pdf-fns": "^0.1.0-alpha.0",
-    "@novalabs/pdf-unicode-properties": "^2.6.0-alpha.0",
+    "@novalabs/pdf-fns": "^0.2.0-alpha.0",
+    "@novalabs/pdf-unicode-properties": "^2.7.0-alpha.0",
     "bidi-js": "^1.0.2",
     "hyphen": "^1.6.4"
   }
