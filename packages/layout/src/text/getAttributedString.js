@@ -47,11 +47,12 @@ const getFragments = (fontStore, instance, parentLink, level = 0) => {
 
   const {
     color = 'black',
+    direction = 'ltr',
     fontFamily = 'Helvetica',
     fontWeight,
     fontStyle,
     fontSize = 18,
-    textAlign = 'left',
+    textAlign,
     lineHeight,
     textDecoration,
     textDecorationColor,
@@ -76,8 +77,8 @@ const getFragments = (fontStore, instance, parentLink, level = 0) => {
     color,
     opacity,
     fontSize,
+    direction,
     backgroundColor,
-    align: textAlign,
     indent: textIndent,
     characterSpacing: letterSpacing,
     strikeStyle: textDecorationStyle,
@@ -94,6 +95,7 @@ const getFragments = (fontStore, instance, parentLink, level = 0) => {
     underlineColor: textDecorationColor || color,
     link: parentLink || instance.props?.src || instance.props?.href,
     lineHeight: lineHeight ? lineHeight * fontSize : null,
+    align: R.or(textAlign, direction === 'rtl' ? 'right' : 'left'),
   };
 
   for (let i = 0; i < instance.children.length; i += 1) {

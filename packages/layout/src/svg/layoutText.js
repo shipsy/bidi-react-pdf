@@ -2,6 +2,7 @@ import * as P from '@react-pdf/primitives';
 import layoutEngine from '@react-pdf/textkit/lib/layout';
 import linebreaker from '@react-pdf/textkit/lib/engines/linebreaker';
 import justification from '@react-pdf/textkit/lib/engines/justification';
+import bidi from '@react-pdf/textkit/lib/engines/bidi';
 import scriptItemizer from '@react-pdf/textkit/lib/engines/scriptItemizer';
 import wordHyphenation from '@react-pdf/textkit/lib/engines/wordHyphenation';
 import decorationEngine from '@react-pdf/textkit/lib/engines/textDecoration';
@@ -13,6 +14,7 @@ import fontSubstitution from '../text/fontSubstitution';
 const isTextInstance = node => node.type === P.TextInstance;
 
 const engines = {
+  bidi,
   linebreaker,
   justification,
   scriptItemizer,
