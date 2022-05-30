@@ -1,12 +1,12 @@
-import * as R from 'ramda';
 import bidiFactory from 'bidi-js';
+import { repeat } from '@react-pdf/fns';
 
 const bidi = bidiFactory();
 
 const getBidiLevels = runs => {
   return runs.reduce((acc, run) => {
     const length = run.end - run.start;
-    const levels = R.repeat(run.attributes.bidiLevel, length);
+    const levels = repeat(run.attributes.bidiLevel, length);
     return acc.concat(levels);
   }, []);
 };

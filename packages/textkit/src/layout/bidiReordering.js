@@ -1,5 +1,5 @@
-import * as R from 'ramda';
 import bidiFactory from 'bidi-js';
+import repeat from '@react-pdf/fns/src/repeat';
 
 import stringLength from '../attributedString/length';
 
@@ -8,7 +8,7 @@ const bidi = bidiFactory();
 const getBidiLevels = runs => {
   return runs.reduce((acc, run) => {
     const length = run.end - run.start;
-    const levels = R.repeat(run.attributes.bidiLevel, length);
+    const levels = repeat(run.attributes.bidiLevel, length);
     return acc.concat(levels);
   }, []);
 };
@@ -104,8 +104,8 @@ const reorderLine = attributedString => {
   };
 };
 
-const reorderParagraph = R.map(reorderLine);
+const reorderParagraph = lines => lines.map(reorderLine);
 
-const bidiReordering = () => R.map(reorderParagraph);
+const bidiReordering = () => paragraphs => paragraphs.map(reorderParagraph);
 
 export default bidiReordering;

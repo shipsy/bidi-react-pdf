@@ -1,6 +1,5 @@
-
 const applyAttributes = a => ({
-  align: a.align || a.direction === 'rtl' ? 'right' : 'left',
+  align: a.align || (a.direction === 'rtl' ? 'right' : 'left'),
   alignLastLine:
     a.alignLastLine || (a.align === 'justify' ? 'left' : a.align || 'left'),
   attachment: a.attachment || null,

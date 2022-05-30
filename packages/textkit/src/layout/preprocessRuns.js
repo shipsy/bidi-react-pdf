@@ -24,11 +24,14 @@ const preprocessRuns = (engines, options) => attributedString => {
   const { fontSubstitution, scriptItemizer, bidi } = engines;
 
   const { runs: omittedFontStackRuns } = omitFontStack(attributedString);
-  const { runs: substitutedRuns } = fontSubstitution(options)(attributedString);
   const { runs: itemizationRuns } = scriptItemizer(options)(attributedString);
+  const { runs: substitutedRuns } = fontSubstitution(options)(attributedString);
   const { runs: bidiRuns } = bidi(options)(attributedString);
 
-  const runs = bidiRuns.concat(substitutedRuns).concat(itemizationRuns).concat(omittedFontStackRuns);
+  const runs = bidiRuns
+    .concat(substitutedRuns)
+    .concat(itemizationRuns)
+    .concat(omittedFontStackRuns);
 
   return { string, runs: flatten(runs) };
 };
