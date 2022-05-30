@@ -1,4 +1,5 @@
-import compose from '../../../fns/compose';
+import { compose } from '@react-pdf/fns';
+
 import wrapWords from './wrapWords';
 import typesetter from './typesetter';
 import bidiReordering from './bidiReordering';

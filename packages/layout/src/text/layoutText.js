@@ -1,4 +1,3 @@
-import * as R from 'ramda';
 import layoutEngine from '@react-pdf/textkit/lib/layout';
 import bidi from '@react-pdf/textkit/lib/engines/bidi';
 import linebreaker from '@react-pdf/textkit/lib/engines/linebreaker';
@@ -22,9 +21,9 @@ const engines = {
 
 const engine = layoutEngine(engines);
 
-const getMaxLines = R.path(['style', 'maxLines']);
+const getMaxLines = node => node.style?.maxLines;
 
-const getTextOverflow = R.path(['style', 'textOverflow']);
+const getTextOverflow = node => node.style?.textOverflow;
 
 /**
  * Get layout container for specific text node
@@ -78,7 +77,7 @@ const layoutText = (node, width, height, fontStore) => {
   const options = getLayoutOptions(fontStore, node);
   const lines = engine(attributedString, container, options);
 
-  return R.reduce(R.concat, [], lines);
+  return lines.reduce((acc, line) => [...acc, ...line], []);
 };
 
-export default R.curryN(4, layoutText);
+export default layoutText;
