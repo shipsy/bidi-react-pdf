@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-unicode-properties",
-  "version": "2.7.0-alpha.0",
+  "version": "2.8.0-alpha.0",
   "license": "MIT",
   "description": "Provides fast access to unicode character properties",
   "author": "Devon Govett <devongovett@gmail.com>",

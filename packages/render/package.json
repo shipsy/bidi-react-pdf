@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-render",
-  "version": "2.3.0-alpha.0",
+  "version": "2.4.0-alpha.0",
   "license": "MIT",
   "description": "A render engine for Node and the browser",
   "author": "Diego Muracciole <diegomuracciole@gmail.com>",
@@ -18,10 +18,10 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.16.4",
-    "@novalabs/pdf-fns": "^0.2.0-alpha.0",
-    "@novalabs/pdf-primitives": "^2.2.0-alpha.0",
-    "@novalabs/pdf-textkit": "^2.3.0-alpha.0",
-    "@novalabs/pdf-types": "^2.2.0-alpha.0",
+    "@novalabs/pdf-fns": "^0.3.0-alpha.0",
+    "@novalabs/pdf-primitives": "^2.3.0-alpha.0",
+    "@novalabs/pdf-textkit": "^2.4.0-alpha.0",
+    "@novalabs/pdf-types": "^2.3.0-alpha.0",
     "abs-svg-path": "^0.1.1",
     "color-string": "^1.5.3",
     "normalize-svg-path": "^1.1.0",
