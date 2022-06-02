@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-pdfkit",
-  "version": "2.4.0-alpha.0",
+  "version": "2.4.0",
   "description": "A PDF generation library for Node.js",
   "main": "lib/pdfkit.cjs.js",
   "module": "lib/pdfkit.es.js",
@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "@babel/runtime": "^7.16.4",
-    "@novalabs/pdf-fontkit": "^2.4.0-alpha.0",
+    "@novalabs/pdf-fontkit": "^2.4.0",
     "@novalabs/pdf-png-js": "^2.4.0-alpha.0",
     "crypto-js": "^4.0.0"
   },

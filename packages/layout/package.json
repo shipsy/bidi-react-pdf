@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-layout",
-  "version": "2.4.1-alpha.0",
+  "version": "2.4.1",
   "license": "MIT",
   "description": "Resolve overall document component's layout",
   "author": "Diego Muracciole <diegomuracciole@gmail.com>",
@@ -20,7 +20,7 @@
     "@babel/runtime": "^7.16.4",
     "@novalabs/pdf-fns": "^0.3.0-alpha.0",
     "@novalabs/pdf-image": "^2.4.0-alpha.0",
-    "@novalabs/pdf-pdfkit": "^2.4.0-alpha.0",
+    "@novalabs/pdf-pdfkit": "^2.4.0",
     "@novalabs/pdf-primitives": "^2.3.0-alpha.0",
     "@novalabs/pdf-stylesheet": "^2.4.0-alpha.0",
     "@novalabs/pdf-textkit": "^2.4.1-alpha.0",

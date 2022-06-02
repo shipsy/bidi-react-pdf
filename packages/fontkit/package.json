@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-fontkit",
-  "version": "2.4.0-alpha.0",
+  "version": "2.4.0",
   "description": "An advanced font engine for Node and the browser",
   "repository": {
     "type": "git",

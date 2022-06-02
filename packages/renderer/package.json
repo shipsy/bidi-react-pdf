@@ -1,6 +1,6 @@
 {
   "name": "@novalabs/pdf-renderer",
-  "version": "2.4.1-alpha.0",
+  "version": "2.4.1",
   "license": "MIT",
   "description": "Create PDF files on the browser and server",
   "types": "index.d.ts",
@@ -26,9 +26,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.16.4",
-    "@novalabs/pdf-font": "^2.4.0-alpha.0",
-    "@novalabs/pdf-layout": "^2.4.1-alpha.0",
-    "@novalabs/pdf-pdfkit": "^2.4.0-alpha.0",
+    "@novalabs/pdf-font": "^2.4.0",
+    "@novalabs/pdf-layout": "^2.4.1",
+    "@novalabs/pdf-pdfkit": "^2.4.0",
     "@novalabs/pdf-primitives": "^2.3.0-alpha.0",
     "@novalabs/pdf-render": "^2.4.1-alpha.0",
     "@novalabs/pdf-types": "^2.3.0-alpha.0",
