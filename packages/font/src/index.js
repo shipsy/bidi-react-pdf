@@ -59,8 +59,6 @@ function FontStore() {
 
     const promises = [];
 
-    let remainingChars = text;
-
     for (let len = fontFamilies.length, i = 0; i < len; i += 1) {
       const family = fontFamilies[i];
 
@@ -69,18 +67,10 @@ function FontStore() {
 
       const f = this.getFont({ ...descriptor, fontFamily: family });
 
-      const lengthBeforeReplace = remainingChars.length;
-      remainingChars = remainingChars.replace(f.unicodeRange, '');
+      const didMatch = !f.unicodeRange || f.unicodeRange.test(text);
 
-      const didReplace = lengthBeforeReplace !== remainingChars.length;
-
-      if (didReplace) {
-        if (!f.data && !f.loading) {
-          promises.push(f.load());
-        }
-      }
-      if (!remainingChars.length) {
-        break;
+      if (didMatch) {
+        promises.push(f.load());
       }
     }
 
