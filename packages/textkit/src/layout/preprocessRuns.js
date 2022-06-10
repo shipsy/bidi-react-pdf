@@ -4,8 +4,8 @@ import omit from '../run/omit';
 import flatten from '../run/flatten';
 import empty from '../attributedString/empty';
 
-const omitFontStack = attributedString => {
-  const runs = attributedString.runs.map(run => omit('fontStack', run));
+const omitFont = attributedString => {
+  const runs = attributedString.runs.map(run => omit('font', run));
   return Object.assign({}, attributedString, { runs });
 };
 
@@ -23,7 +23,7 @@ const preprocessRuns = (engines, options) => attributedString => {
   const { string } = attributedString;
   const { fontSubstitution, scriptItemizer, bidi } = engines;
 
-  const { runs: omittedFontStackRuns } = omitFontStack(attributedString);
+  const { runs: omittedFontRuns } = omitFont(attributedString);
   const { runs: itemizationRuns } = scriptItemizer(options)(attributedString);
   const { runs: substitutedRuns } = fontSubstitution(options)(attributedString);
   const { runs: bidiRuns } = bidi(options)(attributedString);
@@ -31,7 +31,7 @@ const preprocessRuns = (engines, options) => attributedString => {
   const runs = bidiRuns
     .concat(substitutedRuns)
     .concat(itemizationRuns)
-    .concat(omittedFontStackRuns);
+    .concat(omittedFontRuns);
 
   return { string, runs: flatten(runs) };
 };
