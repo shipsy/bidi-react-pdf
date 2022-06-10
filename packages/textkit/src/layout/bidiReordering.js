@@ -78,7 +78,6 @@ const reorderLine = attributedString => {
       const glyph = getItemAtIndex(attributedString.runs, 'glyphs', index);
 
       if (addedGlyphs.has(glyph.id)) {
-        addedGlyphs.delete(glyph.id);
         continue;
       }
       updatedGlyphs.push(glyph);
