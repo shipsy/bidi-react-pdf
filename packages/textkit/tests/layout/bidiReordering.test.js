@@ -107,4 +107,33 @@ describe('bidiReordering', () => {
       string.runs[1].positions.reverse(),
     );
   });
+
+  test('should return string reversed not repeating ligatures characters', () => {
+    const string = {
+      string: 'Lore',
+      runs: [
+        {
+          attributes: {
+            direction: 'rtl',
+            bidiLevel: 1,
+          },
+          start: 0,
+          end: 4,
+          glyphs: [
+            { id: 0, isLigature: true },
+            { id: 0, isLigature: true },
+            { id: 0, isLigature: true },
+            { id: 0, isLigature: true },
+          ],
+          positions: [0, 0, 0, 0],
+          glyphIndices: initializeToIndex(4),
+        },
+      ],
+    };
+
+    const result = bidiReorderingInstance([[string]]);
+
+    expect(result[0][0].string).toBe('eroL');
+    expect(result[0][0].runs[0].positions).toEqual([0]);
+  });
 });
