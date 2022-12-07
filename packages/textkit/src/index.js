@@ -7,7 +7,7 @@ import scriptItemizer from './engines/scriptItemizer';
 import wordHyphenation from './engines/wordHyphenation';
 import fontSubstitution from './engines/fontSubstitution';
 
-const engines = {
+export {
   bidi,
   linebreaker,
   justification,
@@ -17,6 +17,4 @@ const engines = {
   fontSubstitution,
 };
 
-const engine = layoutEngine(engines);
-
-export default engine;
+export default layoutEngine;
