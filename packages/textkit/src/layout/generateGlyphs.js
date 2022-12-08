@@ -41,7 +41,14 @@ const layoutRun = string => run => {
   if (!font) return { ...run, glyphs: [], glyphIndices: [], positions: [] };
 
   const runString = string.slice(start, end);
-  const glyphRun = font.layout(runString);
+  // passing LTR To force fontkit to not reverse the string
+  const glyphRun = font.layout(
+    runString,
+    undefined,
+    undefined,
+    undefined,
+    'ltr',
+  );
   const positions = scalePositions(run, glyphRun.positions);
   const glyphIndices = resolveGlyphIndices(glyphRun.glyphs);
 
